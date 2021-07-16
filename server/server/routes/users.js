@@ -29,7 +29,7 @@ const router = express.Router();
    * Get All Users In Database
    */
   router.get('/all', function(req, res, next) {
-    res.json(userController.getAllUsers(req, res, next));
+    userController.getAllUsers(req, res, next)
   });
   
   function getDatabaseInstance() {
