@@ -15,6 +15,8 @@ const UserSchema = new _mongoose.Schema({
   gender: String,
   education: String,
   experience: String,
+  isApproved: Boolean,
+  isAdmin: Boolean,
   expNumber: {
     type: Number,
     min: 1,

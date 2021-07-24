@@ -1,0 +1,82 @@
+
+<section class="profile">
+  <h1 class="title">Application</h1>
+  
+  <h1 class="title">Device profile details</h1>
+ <form #f="ngForm" (ngSubmit)="AddTask(f)">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+       <label>Applicant Name</label>
+        <input type="text"  class="form-control" ngModel name="ApplicantName">
+      </div>
+    </div>
+  
+    <div class="col-md-6">
+      <div class="form-group">
+       <label>Applicant Title</label>
+        <input type="text"  class="form-control" ngModel name="ApplicantTitle">
+      </div>
+    </div>
+  
+    <div class="col-md-6">
+      <div class="form-group">
+       <label>Gender</label>
+        <select ngModel name="Gender" class="form-control">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="col-md-6">
+      <div class="form-group">
+       <label>Education</label>
+       <select ngModel name="Education" class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+      </select>
+      </div>
+    </div>
+  
+    <div class="col-md-6">
+      <div class="form-group">
+       <label>Experince</label>
+        <input type="text"  class="form-control" ngModel name="Experince">
+      </div>
+    </div>
+  
+    <div class="col-md-6">
+      <div class="form-group">
+       <label>years</label>
+        <!-- <input type="text"  class="form-control" ngModel name="Years"> -->
+        <select ngModel name="Years" class="form-control" ngModel name="Years">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+        </select>
+      </div>
+    </div>
+  
+  </div>
+  <br>
+  <nav class="navbar navbar-light bg-light ">
+  <div class="btn">
+    <input type="reset" class="btn btn-info" value="Create another" >
+    
+  <input type="reset" class="btn btn-info" value="cancel">
+  
+  <input type="submit" class="btn btn-info" value="Submit">
+  </div>
+</nav>
+ </form>
+
+</section>
+

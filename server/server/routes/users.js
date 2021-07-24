@@ -2,6 +2,22 @@ import express from 'express';
 import * as userController from '../controllers/userController';
 const router = express.Router();
 
+router.put('/status', function(req, res, next) {
+  userController.updateUserStatus(req, res)
+})
+
+router.post('/register/user', function(req, res, next) {
+  userController.createUser(req, res)
+ });
+
+ router.post('/register/admin', function(req, res, next) {
+  userController.applyUnVerifiedUsers(req, res)
+ });
+
+ router.post('/create/admin', function(req, res, next) {
+  userController.createDefaultAdmin(req, res)
+ });
+
 /**
  * Login With Existing User
  * If The Email Not Found In Database
@@ -10,8 +26,8 @@ const router = express.Router();
  * Else Return Bad Request
  */
  router.post('/login', function(req, res, next) {
-    res.send('respond Login');
-  });
+  userController.login(req, res)
+});
   
   /**
    * Save User In Database
@@ -22,7 +38,7 @@ const router = express.Router();
    * That's Mean there is no any Users Saved In Database And The First One Will Be The Admin Directly
    */
   router.post('/register', function(req, res, next) {
-    res.json(userController.createUser(req))
+   userController.createUser(req, res)
   });
   
   /**

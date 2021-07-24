@@ -8,6 +8,8 @@ const UserSchema = new Schema({
   gender: String,
   education: String,
   experience: String,
+  isApproved: Boolean,
+  isAdmin: Boolean,
   expNumber: { type: Number, min: 1, max: 10, required: true },
   createdAt: { type: Date, default: Date.now() }
 });

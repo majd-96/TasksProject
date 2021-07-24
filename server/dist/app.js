@@ -6,8 +6,6 @@ var _compression = _interopRequireDefault(require("compression"));
 
 var _cookieParser = _interopRequireDefault(require("cookie-parser"));
 
-var _cors = _interopRequireDefault(require("cors"));
-
 var _helmet = _interopRequireDefault(require("helmet"));
 
 var _morgan = _interopRequireDefault(require("morgan"));
@@ -23,15 +21,19 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /* eslint-disable no-console */
-const app = (0, _express.default)(); // database setup
+const app = (0, _express.default)();
 
-const mongoUri = process && process.env && process.env.MONGODB_URI || undefined || 'mongodb://localhost/tasks';
+const cors = require('cors'); // database setup
+
+
+const mongoUri = process && process.env && process.env.MONGODB_URI || undefined || 'mongodb+srv://admin:admin@cluster0.e88f2.mongodb.net/test?retryWrites=true&w=majority';
 const mongooseConfigs = {
   useNewUrlParser: true,
   useUnifiedTopology: true
 };
 
-_mongoose.default.connect(mongoUri, mongooseConfigs);
+_mongoose.default.connect(mongoUri, mongooseConfigs); // 'mongodb://localhost/tasks'
+
 
 app.use((0, _morgan.default)('dev'));
 app.use(_express.default.json());
@@ -40,7 +42,7 @@ app.use(_express.default.urlencoded({
 }));
 app.use((0, _cookieParser.default)());
 app.use((0, _helmet.default)());
-app.use((0, _cors.default)());
+app.use(cors());
 app.use((0, _compression.default)());
 app.use('/api', routes.hello);
 app.use('/api/users', routes.users);

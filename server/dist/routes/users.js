@@ -16,6 +16,19 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const router = _express.default.Router();
+
+router.put('/status', function (req, res, next) {
+  userController.updateUserStatus(req, res);
+});
+router.post('/register/user', function (req, res, next) {
+  userController.createUser(req, res);
+});
+router.post('/register/admin', function (req, res, next) {
+  userController.applyUnVerifiedUsers(req, res);
+});
+router.post('/create/admin', function (req, res, next) {
+  userController.createDefaultAdmin(req, res);
+});
 /**
  * Login With Existing User
  * If The Email Not Found In Database
@@ -24,9 +37,8 @@ const router = _express.default.Router();
  * Else Return Bad Request
  */
 
-
 router.post('/login', function (req, res, next) {
-  res.send('respond Login');
+  userController.login(req, res);
 });
 /**
  * Save User In Database
@@ -38,7 +50,7 @@ router.post('/login', function (req, res, next) {
  */
 
 router.post('/register', function (req, res, next) {
-  res.json(userController.createUser(req));
+  userController.createUser(req, res);
 });
 /**
  * Get All Users In Database

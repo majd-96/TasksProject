@@ -7,7 +7,7 @@ const request = supertest(app);
 describe('/api/users routes:', () => {
   beforeAll(async () => {
     await mongoose.disconnect();
-    const url = 'mongodb://127.0.0.1/test';
+    const url = 'mongodb+srv://admin:admin@cluster0.e88f2.mongodb.net/test?retryWrites=true&w=majority';
     await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
   });
 
